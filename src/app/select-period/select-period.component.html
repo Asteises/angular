@@ -1,0 +1,67 @@
+<div class="fset">
+    <div class="fset-row">
+        <div class="fset-item">
+            <label [style.padding-bottom]="'1px'">Период:</label>
+        </div>
+
+        <div class="fset-item">
+            <dx-radio-group
+                #period
+                [items]="radioButtons"
+                [(value)]="reportType"
+                [dataSource]="radioButtons"
+                displayExpr="text"
+                valueExpr="value"
+                layout="horizontal"
+                (onValueChanged)="onOptionsChanged()"
+            ></dx-radio-group>
+        </div>
+
+        <div class="fset-item fgrow">
+            <div class="frow fgrow">
+                <dx-select-box *ngIf="period.value !== 3"
+                               [dataSource]="years"
+                               [(value)]="selectedYear"
+                               [width]="200"
+                               (onValueChanged)="onOptionsChanged()">
+                </dx-select-box>
+
+                <dx-select-box *ngIf="period.value === 1"
+                               [dataSource]="quarters"
+                               displayExpr="text"
+                               valueExpr="value"
+                               [(value)]="selectedQuarter"
+                               [width]="200"
+                               (onValueChanged)="onOptionsChanged()">
+                </dx-select-box>
+
+                <dx-select-box *ngIf="period.value === 2"
+                               [dataSource]="months"
+                               [(value)]="selectedMonth"
+                               [width]="200"
+                               (onValueChanged)="onOptionsChanged()">
+                </dx-select-box>
+            </div>
+            <div class="frow" *ngIf="period.value === 3">
+                <dx-date-box
+                    width="150"
+                    [(value)]="dateStart"
+                    [width]="200"
+                    placeholder="Выберете дату начала"
+                    type="date"
+                    (onValueChanged)="onOptionsChanged()"
+                >
+                </dx-date-box>
+                <dx-date-box
+                    width="150"
+                    [(value)]="dateEnd"
+                    [width]="200"
+                    placeholder="Выберете дату конца"
+                    type="date"
+                    (onValueChanged)="onOptionsChanged()"
+                >
+                </dx-date-box>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.frow {
+    display: flex;
+    flex-direction: row;
+    > * + * {
+        margin-left: 20px;
+    }
+}
+.frow + label {
+    margin-top: 10px;
+}

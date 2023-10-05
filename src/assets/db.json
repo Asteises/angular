@@ -1,0 +1,64 @@
+{
+  "account_statements": [
+    {
+      "account": "04731000920",
+      "retrieveDate": "2009-01-22",
+      "dateType": "BEGIN_DAY",
+      "receipts": 271089927064.79,
+      "refunds": 0.00,
+      "credits": 0.00,
+      "refundsOutstanding": 0.00,
+      "creditsOutstanding": 0.00
+    },
+    {
+      "account": "04731000920",
+      "retrieveDate": "2009-01-22",
+      "dateType": "END_DAY",
+      "receipts": 271118186659.25,
+      "refunds": 0.00,
+      "credits": 0.00,
+      "refundsOutstanding": 0.00,
+      "creditsOutstanding": 0.00
+    },
+    {
+      "account": "04731000920",
+      "retrieveDate": "2009-03-27",
+      "dateType": "BEGIN_DAY",
+      "receipts": 273269055821.95,
+      "refunds": 2000.00,
+      "credits": 58763.41,
+      "refundsOutstanding": 0.00,
+      "creditsOutstanding": 0.00
+    },
+    {
+      "account": "04731000920",
+      "retrieveDate": "2009-03-27",
+      "dateType": "END_DAY",
+      "receipts": 273536048682.70,
+      "refunds": 2000.00,
+      "credits": 58763.41,
+      "refundsOutstanding": 0.00,
+      "creditsOutstanding": 0.00
+    },
+    {
+      "account": "04731000920",
+      "retrieveDate": "2009-05-21",
+      "dateType": "BEGIN_DAY",
+      "receipts": 297364597820.90,
+      "refunds": 74427.32,
+      "credits": 4004887571.73,
+      "refundsOutstanding": 0.00,
+      "creditsOutstanding": 0.00
+    },
+    {
+      "account": "04731000920",
+      "retrieveDate": "2009-05-21",
+      "dateType": "END_DAY",
+      "receipts": 297613014424.89,
+      "refunds": 74427.32,
+      "credits": 4004887571.73,
+      "refundsOutstanding": 41445.02,
+      "creditsOutstanding": 0.00
+    }
+  ]
+}

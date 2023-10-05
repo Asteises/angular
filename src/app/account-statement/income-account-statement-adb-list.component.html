@@ -1,0 +1,103 @@
+<div class="flex-component">
+    <div class="toolbar">
+        <div class="group">
+            <dx-button icon="debt debt-refresh" stylingMode="text" (onClick)="refreshDataGrid($event)"
+                       text="Обновить"></dx-button>
+            <div class="lib-select-period">
+                <lib-select-period
+                  (optionsChanged)="dateOptionsChanged($event)"
+                ></lib-select-period>
+            </div>
+        </div>
+        <div class="group">
+            <div class="dx-field">
+                <div class="dx-field-label">Лицевой счёт</div>
+                <div class="dx-field-value">
+                    <dx-text-box [value]="account" [readOnly]="true"></dx-text-box>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scrollable-container">
+        <dx-data-grid
+            [dataSource]="accountStatements"
+            [allowColumnReordering]="true"
+            [showBorders]="true"
+            [columns]="['receipts', 'refunds', 'credits', 'refundsOutstanding', 'creditsOutstanding']">
+
+            <dxo-filter-row [visible]="true"></dxo-filter-row> <!-- Строка с фильтрацией столбцов и  -->
+            <dxo-paging [enabled]="false"></dxo-paging>
+
+            <dxo-toolbar>
+                <dxi-item location="before">
+                    <dx-radio-group
+                        [items]="tabs"
+                        layout="horizontal">
+                    </dx-radio-group>
+                </dxi-item>
+            </dxo-toolbar>
+
+            <dxi-column dataField="account" [visible]="false"></dxi-column>
+            <dxo-column-chooser [enabled]="false"></dxo-column-chooser> <!-- Выбор столбцов -->
+            <dxi-column dataField="retrieveDate"
+                        dataType="date"
+                        sortOrder="asc"
+                        caption="Дата выписки">
+            </dxi-column> <!-- sortOrder="asc": задаем изначальную сортировку -->
+            <dxi-column dataField="dateType"
+                        caption="Наименование показателя">
+            </dxi-column>
+            <dxi-column dataField="receipts"
+                        dataType="number"
+                        caption="Поступления">
+            </dxi-column>
+            <dxi-column dataField="refunds"
+                        dataType="number"
+                        caption="Возвраты">
+            </dxi-column>
+            <dxi-column dataField="credits"
+                        dataType="number"
+                        caption="Зачёты">
+            </dxi-column>
+            <dxi-column dataField="refundsOutstanding"
+                        dataType="number"
+                        caption="Неисполненные возвраты">
+            </dxi-column>
+            <dxi-column dataField="creditsOutstanding"
+                        dataType="number"
+                        caption="Неисполненные зачёты">
+            </dxi-column>
+
+            <dxo-summary>
+                <dxi-total-item column="retrieveDate"
+                                displayFormat="Итого:">
+                </dxi-total-item>
+                <dxi-total-item column="receipts"
+                                summaryType="sum"
+                                displayFormat="{0}">
+                </dxi-total-item>
+
+                <dxi-total-item column="refunds"
+                                summaryType="sum"
+                                displayFormat="{0}">
+                </dxi-total-item>
+
+                <dxi-total-item column="credits"
+                                summaryType="sum"
+                                displayFormat="{0}">
+                </dxi-total-item>
+
+                <dxi-total-item column="refundsOutstanding"
+                                summaryType="sum"
+                                displayFormat="{0}">
+                </dxi-total-item>
+
+                <dxi-total-item column="creditsOutstanding"
+                                summaryType="sum"
+                                displayFormat="{0}">
+                </dxi-total-item>
+            </dxo-summary>
+        </dx-data-grid>
+    </div>
+</div>
